@@ -1,0 +1,8 @@
+CMP/Debug
+CMP/Release
+Debug
+Release
+CMPTest/Debug
+CMPTest/Release
+*.opendb
+*.db

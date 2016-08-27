@@ -22,6 +22,7 @@
     <ProjectGuid>{06F5F212-9C2B-47B8-8577-312D1C9C4E34}</ProjectGuid>
     <RootNamespace>CMP</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>CMP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

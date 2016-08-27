@@ -31,14 +31,17 @@ int main(int arc, char**argv) {
 	double trapS4 = cmp::trapInt(sinFunc, a, b, 0.0001);
 	double trapS5 = cmp::trapInt(sinFunc, a, b, 0.00001);
 	double simpS = cmp::simpInt(sinFunc, a, b, N);
+	double rombS = cmp::rombergInt<16>(sinFunc, a, b, 0.001);
 
+	double acceptedValue = 0.550328;
 	std::cout << "Accepted value: 0.550328" << std::endl;
-	std::cout << "Trapzoid rule (N=" << N << "): " << trapS << std::endl;
-	std::cout << "Trapzoid rule (adaptive, err: 0.01): " << trapS2 << std::endl;
-	std::cout << "Trapzoid rule (adaptive, err: 0.001): " << trapS3 << std::endl;
-	std::cout << "Trapzoid rule (adaptive, err: 0.0001): " << trapS4 << std::endl;
-	std::cout << "Trapzoid rule (adaptive, err: 0.00001): " << trapS5 << std::endl;
-	std::cout << "Simpson's rule: (N=" << N << "): " << simpS << std::endl;
+	std::cout << "Trapzoid rule (N=" << N << "): " << trapS << ", %error: " << (trapS - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Trapzoid rule (adaptive, err: 0.01): " << trapS2 << ", %error: " << (trapS2 - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Trapzoid rule (adaptive, err: 0.001): " << trapS3 << ", %error: " << (trapS3 - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Trapzoid rule (adaptive, err: 0.0001): " << trapS4 << ", %error: " << (trapS4 - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Trapzoid rule (adaptive, err: 0.00001): " << trapS5 << ", %error: " << (trapS5 - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Simpson's rule: (N=" << N << "): " << simpS << ", %error: " << (simpS - acceptedValue) / acceptedValue << std::endl;
+	std::cout << "Romberg itegration (adaptive, err: 0.0001): " << rombS << ", %error: " << (rombS - acceptedValue) / acceptedValue << std::endl;
 
 	cmp::BesselFunction<1, 1000> J1;
 	std::cout << "J1(0.00) = " << J1(0.00) << std::endl;

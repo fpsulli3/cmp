@@ -36,10 +36,10 @@ namespace cmp {
 
 			h = (b-a)/ twoip1;
 			double Ii = s*h;
-			error = abs(errori(Ii, Ip));
-			Ip = Ii;
+			error = errori(Ii, Ip);
+			Ip = Ii + error;
 			++i;
-		} while (error > err);
+		} while (abs(error) > err);
 
 		return Ip;
 	}
